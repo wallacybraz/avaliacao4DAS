@@ -1,0 +1,33 @@
+Questão 2 avaliação 4 das
+Bruno Matias Casas - 15/0051212
+Francisco Wallacy Coutinho Braz - 15/0059329
+
+Stub  - Quando um cliente requisita a execução de um método em um objeto remoto, o método é executado em um objeto stub, que age como um proxy para o objeto remoto. O stub também é responsável por realizar a de-serialização dos dados recebidos do skeleton do servidor.
+
+Skeleton - O skeleton age como uma forma de receber a requisição(parâmetros) serializados e executar a deserialização, além de passar  a chamada para o objeto real.
+
+Registro - Os objetos remotos do servidor devem prover uma forma de clientes conseguirem realizar chamadas de método. Em geral, o servidor registra seus objetos em um servidor de registro, que é acessível pelo código cliente.
+
+Serialização - Quando um método é invocado em um objeto remoto, ou quando um objeto remoto envia respostas ao cliente, os dados devem ser transformados numa forma independente da plataforma. Para isso o java rmi usa de serialização para alcançar essa funcionalidade. O stub do cliente serializa os dados para o skeleton do servidor e vice-versa.
+
+Invocação remota de métodos - Em uma arquitetura cliente/servidor, usando o java rmi, um cliente consegue primeiro uma referência ao objeto remoto. Esta referência é obtida por meio de acesso ao registro do rmi. Qualquer tipo de chamada para esse objeto entretanto, é feita em um stub. A chamada é então passada ao skeleton no servidor que faz a deserialização dos parâmetros, e direciona para o objeto remoto real, que retorna o valor de retorno ou uma exception para o skeleton mais uma vez realizar o caminho inverso.
+
+Analogia à figura 1
+
+Assumindo que o próprio java rmi seja análogo a um framework de componentes, então o mesmo deve ser capaz de prover serviços de infra-estrutura e coordenação dos componentes.
+
+O stub, é um componente do framework, portanto possui uma interface acessível bem definida, possui seu tipo especificado pelo modelo de componente e realiza uma funcionalidade específica.
+
+O skeleton age como uma forma de comunicação entre diferentes componentes do sistema. Responsável por redirecionar uma chamada do componente stub, para o real objeto, pode ser relacionado à função de um dos serviços de framework, como mostrado por [1], comunicação assíncrona.
+
+O registro tem a função de possibilitar que clientes, consigam obter instâncias de objetos remotos. É possível classificar esse elemento como sendo parte do serviço de distribuição, como mostrado em [1], Onde “deve existir uma transparência de localização, em que o cliente não  precise saber onde a instá a instância do componente que fornece o serviço, bem como a instância do componente não precise ter conhecimento da origem das solicitações que recebe”.
+
+Já a serialização é uma forma de promover o transporte de dados independente do ambiente. O modelo de componente define a forma das interações entre os componentes. Portanto a serialização seria um padrão imposto pelo modelo de componentes, como mostrado na frase de [1] “Já o modelo de componentes identifica as definições quanto a tipos de componentes, formas de interação e recursos necessários.“
+
+Invocação remota de métodos - Quando um cliente executa uma chamada de método em um objeto stub, o mesmo deve serializar os dados e enviar ao skeleton do servidor, o skeleton por sua vez, repassa a chamada pro objeto remoto que finalmente passa a resposta pro skeleton para que o caminho inverso seja percorrido. A todo esse processo é possível identificar os elementos análogos ao framework de componente. Primeiro o código cliente consegue obter uma instância do stub para realizar chamada, isso é possível graças ao registro, membro do serviço de distribuição do framework. Para que o stub possa passar a chamada para o skeleton, uma infra-estrutura de comunicação bem definida deve estar preparada para tal, portanto, essa funcionalidade é provida pelo serviço de coordenação do framework.
+
+Bibliografia
+
+[1] SPAGNOLI, Luciana de Araujo; BECKER, Karin. Um Estudo Sobre o Desenvolvimento Baseado em Componentes. 2003. 40 p. Relatório Técnico (Programa de Pós-Graduação em Ciência da Computação)- Faculdade Informática, PUC RS, Porto Alegre, 2003. Disponível em: http://www.pucrs.br/facin-prov/wp-content/uploads/sites/19/2016/03/tr026.pdf. Acesso em: 04 dez. 2018.
+
+[2] https://docs.oracle.com/javase/7/docs/technotes/guides/rmi/hello/hello-world.html, acesso em: 04 dez.

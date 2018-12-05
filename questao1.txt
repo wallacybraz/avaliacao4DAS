@@ -1,0 +1,57 @@
+Questão 1 avaliação 4 das
+Bruno Matias Casas - 15/0051212
+Francisco Wallacy Coutinho Braz - 15/0059329  
+
+
+
+1.1 Componente
+
+Em [1] o autor apresenta três definiçõe sobre o tema. Ambas se apresentam conceitualmente semelhantes salvo algumas diferenças técnicas. Em [1](Apud, [SAM97]), é apresentado a seguinte definição:"componentes de software reusáveis são artefatos autocontidos, facilmente identificáveis que descrevem e/ou executam funções específicas e têm interfaces claras, documentação apropriada e uma condição de reuso definida"
+
+Tal definição é composta e uma análise de suas partes se faz necessária a fim de facilitar sua compreensão. Primeiro é dito que o componente de software deve ser “autocontido”. O que isso significa é que um componente deve possuir todos os elementos necessários para realizar sua funcionalidade. Em outras palavras ele deve ser absolutamente coeso. Em seguida temos a definição de que um componente deve ser “fácilmente identificável”. Como exposto por [1], um componente fácilmente identificável é aquele que se encontra disposto em uma estrutura organizacional que possibilite uma busca rápida. Além de serem coesos no sentido de serem independentes, os componentes de softwares precisam também realizar funcionalidades específicas.  Já o termo “interfaces claras” diz respeito à capacidade do componente de expor apenas uma interface de manipulação e encapsular detalhes de implementação. Tudo isto deve ser complementado pela documentação do componente, o qual deve especificar no mínimo, qual a funcionalidade oferecida, e como essa funcionalidade é oferecida por meio de sua interface. Por último temos a citação do termo “condição de reuso”. [1] afirma que que a condição de reuso diz respeito a informações necessárias para que o reuso do componente se mantenha necessário.
+
+A segunda definição apresentada por [1] define que componente é um “ conjunto independente de serviços reutilizáveis”[1](Apud, [BRO97]). Serviços utilizáveis quer dizer que um componente precisa apresentar de alguma forma, serviços que podem ser utilizados por terceiros. Nessa informação está implícita a necessidade do componente apresentar uma interface bem definida e uma documentação de fácil acesso. Já por “independente”, entende-se mais uma vez que o componente do software deve realizar as funcionalidades que se propõe a fazer, sem a necessidade de interação ou colaboração com outros elementos.
+
+Por último, “componente de software é uma unidade de composição com interfaces contratualmente especificadas e apenas explícitas dependências de contexto. Componente de software pode ser usado independente e combinado com outras partes “[1](Apud, [SZY99]). Essa definição mais uma vez evidencia a necessidade de que o componente seja independente e de que possua uma interface bem definida. Porém uma adição é feita, no sentido de que o componente precisa também ser responsável por especificar quais são as dependências de ambiente, ou contexto, necessárias a sua boa funcionalidade.
+
+
+O componente desempenha no DBC a função de ser a unidade elementar dentro do processo de desenvolvimento. Dentro do DBC, o desenvolvimento pode ser visualizado segundo duas perspectivas: desenvolvimento com componentes e desenvolvimento de componentes. No primeiro o processo de desenvolvimento faz uso de componentes já existentes a fim de conceber novos softwares, já no segundo, o processo de desenvolvimento tem como finalidade a criação de novos componentes.
+
+O autor [1] faz uma melhor especificação do desenvolvimento com componentes. É explicitado que etapas devem ser seguidas a fim de seguir essa abordagem: Encontra componentes candidatos ao reuso, selecionar componentes  específicos ao domínio, adaptar as escolhas, realizar a composição dos componentes e por último atualizar os componentes.
+
+1.2 Modelo de componente
+
+
+Em [1] é dito que um componente pode ser visto segundo duas perspectivas: implementações e abstrações arquiteturais. Visto como implementação o componente é representado como um artefato de código, passível de reutilização. Porém, ao ver os componentes como abstrações arquiteturais, estes especificam um modelo responsável por apresentar regras de coordenação de todos os componentes. A esse conjunto de regras dá-se o nome de modelo de componente[1].
+
+De acordo como [1](Apud, [BAC02]) modelo de componente “representa um elemento da arquitetura do sistema na qual são definidos os padrões e convenções impostas aos componentes do sistema, de modo a descrever a função de cada um e como eles interagem entre si. Com isso busca-se
+expressar restrições de projeto arquitetural ou global”.
+
+[1] Afirma que não há um consenso quanto ao que um modelo de componentes deve apresentar. Porém existem algumas convenções. Primariamente são definidas:
+
+- Tipos de componentes são definidos de acordo com as interfaces que implementam. Portanto um componente que implementa , por exemplo, uma interface A, diz-se que tal componente é do tipo A. Um componente pode possuir tipo composto, quando existe a implementação de mais de uma interface.
+
+- Formas de interação: Como especificado na bibliografia, o modelo de componente deve especificar como os componentes devem interagir entre si, bem como interagir com o framework de componente. É definido também o termo “Classe de interação”, que especifica quantos componentes podem ser clientes de outros.
+
+- Definição de recursos: Na definição de recursos, o modelo deve apresentar quais recursos estão disponíveis para os componentes e como e quando estes recursos são utilizados.
+
+Portanto o modelo de componente tem a função de definir algumas regras que devem ser seguidas por todo os componentes envolvidos. Tais regras normalmente são suportadas pelo framework de componente.
+
+
+1.3 Framework de componentes
+
+É apresentado por [1]  que um framework de componentes nada mais é do que a base sobre a qual  as regras estabelecidas pelo modelo de componentes são aplicadas. Formalmente [1](Apud, [BAC02]) framework de componentes é definido como “infra-estrutura de componentes”. Se encaixa também em pelo menos uma das seguintes categorias de serviços: empacotamento, distribuição, segurança, gerenciamento de transações e comunicação assíncrona.
+
+Onde:
+
+- Empacotamento: forma que a infraestrutura de componentes provê para dispor uma maneira de informar a interface dos componentes.
+- Distribuição: ativa e desativa as instâncias dos componentes, gerência alocação de instâncias para processos remotos além de encapsular informações relativas a localização das instâncias do cliente.
+- Segurança: Provê serviços de segurança gerais, tais como controle de acesso e níveis de isolamento.
+- Gerenciamento de transação: Serviço responsável por garantir a integridade de dados por meio de coordenação de transações.
+- Comunicação assíncrona: Suporte a mensagens assíncronas.
+
+Em suma, o framework de componente tem como função prover suporte de infra-estrutura e comunicação aos componentes do sistema[1].
+
+Bibliografia
+
+[1] SPAGNOLI, Luciana de Araujo; BECKER, Karin. Um Estudo Sobre o Desenvolvimento Baseado em Componentes. 2003. 40 p. Relatório Técnico (Programa de Pós-Graduação em Ciência da Computação)- Faculdade Informática, PUC RS, Porto Alegre, 2003. Disponível em: http://www.pucrs.br/facin-prov/wp-content/uploads/sites/19/2016/03/tr026.pdf. Acesso em: 04 dez. 2018.
